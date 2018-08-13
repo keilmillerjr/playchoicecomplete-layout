@@ -2,6 +2,8 @@
 
 by [Keil Miller Jr](http://keilmiller.com)
 
+![Image of layout](layout.gif)
+
 ## DESCRIPTION:
 
 *playchoicecomplete* is a layout for the [AttractMode](http://attractmode.org) front end. It is inspired from the Nintendo Playchoice-10 arcade machine.
