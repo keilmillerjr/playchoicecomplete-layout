@@ -17,36 +17,36 @@ class UserConfig {
 		options="Yes, No",
 		order=1 />
 	enableSnapShader="No";
-	
+
 	</ label="CRT Shader Resolution",
 		help="Select CRT resolution.",
 		options="640x480, 320x240",
 		order=2 />
 	shaderResolution="320x240";
-	
+
 	</ label="Hide Brackets in Game Title",
 		help="Hide brackets in game title.",
 		options="Yes, No",
 		order=3 />
 	hideBrackets="Yes";
-	
+
 	</ label="Marquee Color",
 		help="Color for marquee background.",
 		options="Black, Green",
 		order=4 />
 	marqueeColor="Green";
-	
+
 	</ label="Marquee Opacity",
 		help="Percentage of opacity for marquee background.",
 		order=5 />
 	marqueeOpacity="85";
-	
+
 	</ label="Favorite Image",
 		help="Select which image to show for favorites.",
 		options="Star, Heart",
 		order=6 />
 	favoriteImage="Star";
-	
+
 	</ label="Enable SoundFx",
 		help="Enable SoundFx.",
 		options="Yes, No",
@@ -82,8 +82,8 @@ function filterString() {
 // --------------------
 local snap = FadeArt("snap", -1, -1, 1, 1);
 	setProps(snap, config.snap);
-	
-local marquee = fe.add_image("white.png", -1, -1, 1, 1);
+
+local marquee = fe.add_image(paths.pixel, -1, -1, 1, 1);
 	setProps(marquee, config.marquee);
 	if (user_config["marqueeColor"] == "Green") setProps(marquee, config.marqueeGreen);
 	marquee.alpha = per(user_config["marqueeOpacity"].tointeger(), 255);
@@ -94,7 +94,7 @@ local container = fe.add_surface(config.container.width, config.container.height
 local display = container.add_text("[!displayString]", -1, -1, 1, 1);
 	setProps(display, config.display);
 
-local pill = container.add_image("white.png", -1, -1, 1, 1);
+local pill = container.add_image(paths.pixel, -1, -1, 1, 1);
 	setProps(pill, config.pill);
 
 local channel = container.add_text("CHANNEL SELECT MENU", -1, -1, 1, 1);
@@ -170,7 +170,7 @@ if (fe.load_module("shader")) {
 		snapShader <- CrtLottes(splitRes(user_config.shaderResolution, "width"), splitRes(user_config.shaderResolution, "height"));
 		snap.shader = snapShader.shader;
 	}
-	
+
 	// Slot Artwork Shader
 	pillShader <- RoundCorners(config.pill.height/2, config.pill.width, config.pill.height*4);
 		pill.shader = pillShader.shader;
@@ -207,7 +207,7 @@ if (toBool(user_config.enableSoundFx)) {
 		}
 		return false;
 	}
-	
+
 	fe.add_transition_callback("soundFxTransitions");
 	function soundFxTransitions(ttype, var, ttime) {
 		switch(ttype) {
