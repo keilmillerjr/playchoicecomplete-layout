@@ -83,7 +83,7 @@ function filterString() {
 local snap = FadeArt("snap", -1, -1, 1, 1);
 	setProps(snap, config.snap);
 
-local marquee = fe.add_image(paths.pixel, -1, -1, 1, 1);
+local marquee = fe.add_image(pixelPath, -1, -1, 1, 1);
 	setProps(marquee, config.marquee);
 	if (user_config["marqueeColor"] == "Green") setProps(marquee, config.marqueeGreen);
 	marquee.alpha = per(user_config["marqueeOpacity"].tointeger(), 255);
@@ -94,7 +94,7 @@ local container = fe.add_surface(config.container.width, config.container.height
 local display = container.add_text("[!displayString]", -1, -1, 1, 1);
 	setProps(display, config.display);
 
-local pill = container.add_image(paths.pixel, -1, -1, 1, 1);
+local pill = container.add_image(pixelPath, -1, -1, 1, 1);
 	setProps(pill, config.pill);
 
 local channel = container.add_text("CHANNEL SELECT MENU", -1, -1, 1, 1);
